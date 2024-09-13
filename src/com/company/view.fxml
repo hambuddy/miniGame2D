@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane id = "AnchorPane" fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="520.0" prefWidth="730.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.njajal.ExampleController">
+   <children>
+      <VBox fx:id="MainUI" layoutY="-1.0" prefHeight="520.0" prefWidth="730.0">
+         <children>
+            <Canvas fx:id="GameCanvas" height="476.0" width="729.0" />
+            <GridPane prefHeight="102.0" prefWidth="730.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Button fx:id="StartButton" mnemonicParsing="false" onAction="#onStartClicked" text="START" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+                  <ChoiceBox fx:id="LevelChoiceBox" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <Label fx:id="TimerLabel" prefHeight="17.0" prefWidth="57.0" text="TIME" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+                  <Label fx:id="LevelLabel" prefHeight="17.0" prefWidth="60.0" text="LEVEL" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+                  <Label fx:id="ScoreLabel" prefHeight="17.0" prefWidth="64.0" text="SCORE" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+                  <Button fx:id="LeaderBoardButton" mnemonicParsing="false" onAction="#onLeaderBoardClicked" text="LEADERBOARD" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+               </children>
+            </GridPane>
+         </children>
+      </VBox>
+      <VBox fx:id="StartGameUI" layoutX="214.0" layoutY="128.0" prefHeight="199.0" prefWidth="307.0">
+         <children>
+            <GridPane prefHeight="202.0" prefWidth="307.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <TextField fx:id="NameTextField" prefHeight="25.0" prefWidth="317.0" text="ENTER YOUR NAME :" />
+                  <Button fx:id="CancelGameButton" mnemonicParsing="false" text="CANCEL" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+                  <Button fx:id="StartGameButton" mnemonicParsing="false" onAction="#onStartGameClicked" text="START GAME" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+               </children>
+            </GridPane>
+         </children>
+      </VBox>
+      <VBox fx:id="NextLevelUI" layoutX="164.0" layoutY="167.0" prefHeight="143.0" prefWidth="399.0">
+         <children>
+            <Label prefHeight="93.0" prefWidth="399.0" text="GO TO THE NEXT LEVEL?" />
+            <GridPane>
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Button fx:id="NextLevelButton" mnemonicParsing="false" onAction="#onNextLevelClicked" text="NEXT LEVEL" GridPane.halignment="CENTER" />
+                  <Button fx:id="StopGameButton" mnemonicParsing="false" text="STOP GAME" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
+               </children>
+            </GridPane>
+         </children>
+      </VBox>
+      <VBox fx:id="GameOverUI" layoutX="166.0" layoutY="130.0" prefHeight="219.0" prefWidth="399.0">
+         <children>
+            <Label prefHeight="115.0" prefWidth="399.0" text="GAME OVER!" />
+            <Button fx:id="GameOverButton" mnemonicParsing="false" onAction="#onGameOverClicked" text="OK" />
+         </children>
+      </VBox>
+      <VBox fx:id="LeaderBoardUI" layoutX="39.0" layoutY="55.0" prefHeight="338.0" prefWidth="654.0">
+         <children>
+            <TableView fx:id="RankTableView" prefHeight="200.0" prefWidth="200.0">
+              <columns>
+                <TableColumn prefWidth="253.0" text="Nama" />
+                <TableColumn minWidth="0.0" prefWidth="132.0" text="Diffuculty" />
+                  <TableColumn prefWidth="117.0" text="Level" />
+                  <TableColumn prefWidth="151.0" text="Skor" />
+              </columns>
+            </TableView>
+            <GridPane>
+              <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Button fx:id="CloseRankButton" mnemonicParsing="false" text="OK" GridPane.halignment="CENTER" />
+               </children>
+            </GridPane>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>
